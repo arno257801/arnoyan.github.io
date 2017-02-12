@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ArnoYan Page</title>
+	<meta charset="utf-8" />
+    <link href="css.css" rel="stylesheet" />
+ <script>var vid = document.getElementById("bgvid");
+     var pauseButton = document.querySelector("#polina button");
+
+     if (window.matchMedia('(prefers-reduced-motion)').matches) {
+         vid.removeAttribute("autoplay");
+         vid.pause();
+         pauseButton.innerHTML = "Paused";
+     }
+
+     function vidFade() {
+         vid.classList.add("stopfade");
+     }
+
+     vid.addEventListener('ended', function () {
+         // only functional if "loop" is removed 
+         vid.pause();
+         // to capture IE10
+         vidFade();
+     });
+
+
+     pauseButton.addEventListener("click", function () {
+         vid.classList.toggle("stopfade");
+         if (vid.paused) {
+             vid.play();
+             pauseButton.innerHTML = "Pause";
+         } else {
+             vid.pause();
+             pauseButton.innerHTML = "Paused";
+         }
+     })
+
+</script>
+</head>
+
+<body>
+    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
+        <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+    </video>
+    <div id="polina">
+        <h1>Kopka</h1>
+        <p>Made By Arno
+        <p><a href="https://www.facebook.com/aleksandra.kopka.54?fref=ts">Click on me Aleksandra</a>
+        <p>There was a girl named Aleksandra Kopka ....... actually it is a long story just "Hey Aleksandra from Arno :P"</p>
+        <p>Aleksandra is one of the best names in the world :) if u read this send me a message :* </p>
+        <button>Funny me</button>
+    </div>
+
+</body>
+</html>
